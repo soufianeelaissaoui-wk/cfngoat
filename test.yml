@@ -1,0 +1,29 @@
+  ############
+  ###  S3  ###
+  ############
+  DataBucket:
+    # Public, not encrypted, no access logs, no versioning
+    Type: AWS::S3::Bucket
+    DeletionPolicy: Delete
+    Properties:
+      BucketName: !Sub "${AWS::AccountId}-${CompanyName}-${Environment}-data"
+      AccessControl: PublicRead
+      Tags:
+        - Key: Name
+          Value: !Sub "${AWS::AccountId}-${CompanyName}-${Environment}-data"
+        - Key: git_repo
+          Value: cfngoat
+        - Key: git_file
+          Value: cfngoat.yaml
+        - Key: git_commit
+          Value: b1681f3806db6656faf4107ceceb77e9364e59b7
+        - Key: git_modifiers
+          Value: jonathan.jozwiak
+        - Key: git_last_modified_at
+          Value: "2020-04-25 01:13:26"
+        - Key: git_last_modified_by
+          Value: jonathan.jozwiak@googlemail.com
+        - Key: yor_trace
+          Value: 509b197d-4f87-4ae1-aa43-8cca13c9e92e
+        - Key: git_org
+          Value: bridgecrewio
